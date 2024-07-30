@@ -1,0 +1,61 @@
+<div class="container">
+  <form [formGroup]="personForm" (ngSubmit)="onSubmit()">
+
+    <div class="form-group">
+      <label>First Name</label>
+      <input type="text" class="form-control" formControlName="firstName"/>
+    </div>
+
+    <!-- First Name Error messages -->
+    <div class="alert alert-danger" *ngIf="personForm.controls['firstName'].hasError('required')">
+      First Name should not be empty
+    </div>
+    <div class="alert alert-danger" *ngIf="personForm.controls['firstName'].hasError('minlength')">
+      First Name should be atleast three charactes
+    </div>
+    <div class="alert alert-danger" *ngIf="personForm.controls['firstName'].hasError('maxlength')">
+      First Name should be at max ten characters
+    </div>
+
+    <div class="form-group">
+      <label>Last Name</label>
+      <input type="text" class="form-control" formControlName="lastName"/>
+    </div>
+
+    <div class="form-group">
+      <label>Email</label>
+      <input type="text" class="form-control" formControlName="email"/>
+    </div>
+
+    <!-- Address -->
+    <div class="form-group" formGroupName="address">
+      <div class="form-group">
+        <label>Street</label>
+        <input type="text" class="form-control" formControlName="street">
+      </div>
+
+      <div class="form-group">
+        <label>City</label>
+        <input type="text" class="form-control" formControlName="city">
+      </div>
+
+      <div class="form-group">
+        <label>Country</label>
+        <select class="form-control" formControlName="country">
+          <option *ngFor="let c of countries" value="{{c}}">{{c}}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Gender</label>
+      <input type="radio" value="male" formControlName="gender">Male
+      <input type="radio" value="female" formControlName="gender">Female
+    </div>
+
+    <div align="center">
+      <input type="submit" class="btn btn-success">
+    </div>
+
+  </form>
+</div>

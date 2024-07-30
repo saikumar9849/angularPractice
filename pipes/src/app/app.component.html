@@ -1,0 +1,43 @@
+<h1>Text Pipes</h1>
+<h3>{{ title }}</h3>
+<h3>{{ title | titlecase }}</h3>
+<h3>{{ title | uppercase }}</h3>
+<h3>{{ title | lowercase }}</h3>
+
+<h1>Date Pipe</h1>
+<h3>{{myDate}}</h3>
+<h3>{{ myDate | date:'dd-MM-yy' }}</h3>
+<h3>{{ myDate | date:'MMM-dd-yyyy' }}</h3>
+<h3>{{ myDate | date:'shortDate' }}</h3>
+<h3>{{ myDate | date:'mediumDate' }}</h3>
+<h3>{{ myDate | date:'fullDate' }}</h3>
+
+<h1>Currency Pipe</h1>
+<h3>{{ myMoney | currency}}</h3>
+<h3>{{ myMoney | currency:'GBP' }}</h3>
+<h3>{{ myMoney | currency:'INR' }}</h3>
+
+<h1>Json Pipe</h1>
+<h3>{{ myObj | json }}</h3>
+
+<h1>Number Pipe</h1>
+<h3>{{ myNumber}}</h3>
+<h3>{{ myNumber | number:'5.1-2' }}</h3>
+
+<h1>Percent Pipe</h1>
+<h3>{{ stock }}</h3>
+<h3>{{ stock | percent:'3.2-2' }}</h3>
+
+<h1>Slice Pipe</h1>
+<h3>{{ numbers | slice:2:4 }}</h3>
+<h3>{{ numbers | slice:2 }}</h3>
+<h3>{{ numbers | slice:1:-1 }}</h3>
+<b *ngFor="let v of numbers | slice:2:4">
+    {{v}}
+</b>
+
+<h1>Async Pipe</h1>
+<h3>{{ myPromise | async}}</h3>
+
+<h1>Custom Pipe (reverse of string)</h1>
+<h3>{{ 'Hello' | reversepipe }}</h3>
